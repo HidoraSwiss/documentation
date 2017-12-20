@@ -1,0 +1,4 @@
+- How to create an account on Hidora
+- How to create a Wordpress cluster
+- How to use a private registry
+- How to use the API / How does it work ?
