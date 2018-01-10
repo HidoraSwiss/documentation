@@ -7,10 +7,65 @@
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
+  <style>
+    body {
+      background-color: #e60000;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    h1 {
+      font-size: 7vh;
+    }
+    a {
+      color: white;
+      text-decoration: none;
+    }
+    .langs {
+      height: 5rem;
+
+    }
+    .lang {
+      padding: 1rem 2rem;
+      background-color: #e60000;
+      margin: 0 1rem;
+      border-radius: 50px;
+      font-size: 2rem;
+      transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease;
+      border: 3px solid white;
+    }
+    .lang:hover {
+      color: #e60000;
+      background-color: white;
+      border-color: #e60000;
+    }
+    .links {
+      font-size: 1.3rem;
+    }
+    @media screen and (max-width: 640px) {
+      h1 {
+        font-size: 2rem;
+        margin-bottom: 3rem;
+      }
+      .lang {
+        padding: 0.5rem 1rem;
+        font-size: 1.5rem;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>Documentation Hidora</h1>
-  <a href='/fr'>Français</a>
-  <a href='/en'>English</a>
+  <div class='container'>
+    <h1>Documentation de Hidora</h1>
+    <div class="langs">
+      <a class='lang' href='/fr'>Français</a>
+      <a class='lang' href='/en'>English</a>
+    </div>
+    <div class='links'>
+      <a target="_blank" href='https://hidora.com'>🡒 hidora.com</a>
+    </div>
+  </div>
 </body>
 </html>
