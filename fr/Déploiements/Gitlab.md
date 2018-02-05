@@ -25,10 +25,10 @@ ssh-keygen -t rsa -b 4096
 
 Lorsqu'on vous le demande, préciser un nom de clé (autre que *id_rsa* proposé par défaut) et n'entrez pas de mot de passe pour la clé, sinon il sera demander lors du déploiement automatique et fera planter le pipeline.
 
-Après génération, vous aurez deux fichiers:
+Après génération, vous aurez deux fichiers (par défaut, elles se placent dans `~/.ssh/`):
 
-- `~/.ssh/<nom-clé>` qui correspond à la *clé privée*
-- `~/.ssh/<nom-clé>.pub` qui correspond à la *clé publique*
+- `<nom-clé>` qui correspond à la *clé privée*
+- `<nom-clé>.pub` qui correspond à la *clé publique*
 
 Connectez vous sur le serveur de déploiement par SSH et copier le contenu de votre clé **publique** à la suite du fichier `~/.ssh/authorized_keys`. S'il n'existe pas, créez le.
 
@@ -61,14 +61,14 @@ Pour cela, nous allons cloner le répertoire de Gitlab en séparant les fichiers
 ```bash
 cd / && mkdir git && cd git
 git clone --bare <url-du-repo-gitlab> # Cela créé un dossier qu'on appellera <bare-dir>
-nano <bare-dir>/hooks/post-receive # Ajouter le contenu ci-dessous
+nano <bare-dir>/hooks/post-receive # Voir "Contenu du fichier post-receive" plus bas
 chmod +x <bare-dir>/hooks/post-receive # On donne le droit d'exécution au script post-receive
 rm -rf <files-dir>/* # On s'assure que le dossier des fichiers est vide
 git clone <bare-dir> <files-dir> # On clone le bare repo vers l'emplacement de nos fichiers
 rm -rf <files-dir>/.git # On retire le dossier .git car on a déjà le <bare-dir> qui gère ce work tree
 ```
 
-`<files-dir>` correspond au chemin absolu du dossier où vous souhaitez placer vos fichiers déployés. Par exemple, sur un noeud Apache, ce sera le dossier `/var/www/html`. Cela dépend de votre configuration.
+`<files-dir>` correspond au chemin absolu du dossier où vous souhaitez placer vos fichiers déployés. Par exemple, sur un noeud *nginxphp*, ce sera le dossier `/var/www/webroot/ROOT/`. Cela dépend de votre configuration.
 
 > Si votre Gitlab est hébergé chez Hidora, lors du `git clone`, il faut que le port utilisé dans `<url-du-repo-gitlab>` soit *22*.
 
