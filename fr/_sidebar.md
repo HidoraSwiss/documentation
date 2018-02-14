@@ -1,8 +1,12 @@
 * [Accueil](/)
 * [Compte](/Account/README.md)
-* [API](/API/README.md)
 * [Optimisations](/Optimisations/README.md)
   * [NGINX](/Optimisations/NGINX.md)
   * [Wordpress](/Optimisations/Wordpress.md)
-* [Déploiements](/Déploiements/README.md)
-  * [Gitlab](/Déploiements/Gitlab.md)
+* [Automatisation](/Automatisation/README.md)
+  * [Gitlab](/Automatisation/Gitlab.md)
+  * [Tuleap](/Automatisation/Tuleap.md)
+* [API](/API/README.md)
+  * [Déployer un  manifest](/API/Déployer un manifest.md)
+
+
