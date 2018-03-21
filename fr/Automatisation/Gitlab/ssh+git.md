@@ -4,7 +4,7 @@
 
 ## Déploiement sur un noeud Docker
 
-> Cela ne fonctionne pas pour les noeuds de type Paas généralement utilisés pour les noeuds principaux d'un environnement par les applications du marketplace. Pour déployer dans ces environnements, il faut soit déployer sur un noeud de type Storage, soit configurer un [déploiement sur un noeud Paas]() (tutoriel bientôt disponible).
+> Cela ne fonctionne pas pour les noeuds de type Paas généralement utilisés pour les noeuds principaux d'un environnement par les applications du marketplace. Pour déployer dans ces environnements, il faut soit déployer sur un noeud de type Storage, soit configurer un [déploiement sur un noeud Paas](https://github.com/jelastic-jps/git-push-deploy).
 
 ### Configuration de base
 

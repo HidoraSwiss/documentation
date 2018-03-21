@@ -2,7 +2,7 @@
 
 ![Déploiement avec un Docker Registry](../../../images/Registry Pipeline.png)
 
-Cette méthode, plus avancée que la [méthode git+ssh](/fr/#/Automatisation/Gitlab/ssh+git), utilise des images Docker et un Docker registry pour le test et le déploiement. Elle est plus adaptée pour des applications complexes grâce aux avantages qu'elle apporte, comme notamment:
+Cette méthode, plus avancée que la [méthode git+ssh](/Automatisation/Gitlab/ssh+git), utilise des images Docker et un Docker registry pour le test et le déploiement. Elle est plus adaptée pour des applications complexes grâce aux avantages qu'elle apporte, comme notamment:
 
 - On utilise pleinement le fonctionnement des images et containers Docker. Ainsi, les sources et les dépendances d'une application voyagent ensemble
 - Il est plus facile de tester notre application dans le pipeline car on peut créer rapidement un environnement de test
@@ -116,6 +116,8 @@ Ensuite, il faut fournir à votre pipeline des variables d'environnement pour qu
 - **ENVNAME**: Le nom de l'environnement sur Hidora dans lequel vous souhaitez déployer votre application. Par exemple, `env-542623` (ne pas mettre la partie *.hidora.com*)
 - **NODE_ID**: L'ID du noeud sur lequel vous souhaitez déployer votre application
 - **LOGIN** et **PASSWORD**: Les identifiants vous permettant de vous authentifier sur la plateforme Hidora
+
+> Pour une gestion plus fine du déploiement sur Hidora, [voir ici](/Automatisation/Script de déploiement).
 
 ## C'est parti !
 
