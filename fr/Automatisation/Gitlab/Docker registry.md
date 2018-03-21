@@ -12,14 +12,14 @@ Cette méthode, plus avancée que la [méthode git+ssh](/Automatisation/Gitlab/s
 
 ## Pré-requis
 
-- Un serveur GitLab ainsi qu'un runner configuré en mode *Docker*
+- Un serveur Gitlab ainsi qu'un runner configuré en mode *Docker*. Plus d'informations dans la [documentation de Gitlab](https://docs.gitlab.com/runner/install/docker.html)
 - Un serveur Docker Registry (hébergé ou non sur Hidora). Vous pouvez utiliser ce script pour en déployer un en deux cliques sur la plateforme: https://github.com/HidoraSwiss/manifest-registry
 
 ## Dockerfile
 
 Dans un premier temps, il est nécessaire d'ajouter à vos sources un fichier `Dockerfile` qui va construire une image prête pour la Production à chaque push.
 
-Les fichiers présents dans l'image Docker qui sera utilisée pour le déploiement doivent se suffire à eux-même. Il est donc nécessaire d'ajouter les fichiers sources de votre dépôt directement dans l'image par l'intermédiaire du Dockerfile.
+Pour une configuration générique, nous ajoutons les fichiers sources du dépôt Git directement dans l'image par l'intermédiaire du Dockerfile.
 
 Par exemple, si vous souhaitez déployer une application PHP, votre Dockerfile pourrait ressembler à cela:
 
@@ -34,7 +34,7 @@ Notez l'utilisation de `COPY` qui copie tous les fichiers sources dans le dossie
 
 Avant de pouvoir déployer automatiquement vos modifications, vous devez créer un environnement sur Hidora.
 
-Pour cela, commencer par construire une image avec vos sources localement afin de la pusher sur votre Docker registry:
+Pour cela, commencez par construire une image avec vos sources localement afin de la pusher sur votre Docker registry:
 
 ```bash
 docker build -t <url-registry>:<port-registry>/dir/image_name .
@@ -65,17 +65,21 @@ stages:
   - deploy
   
 before_script:
+  # On s'identifie auprès du Docker registry avant chaque étape
   - docker login -u $REGISTRY_USER -p$REGISTRY_PASS $REGISTRY_URL
   
 build:
   stage: build
   script:
+  	# On build l'image de test
     - docker build -t $REGISTRY_URL/$IMAGE_TEST .
+    # On push cette image dans le Docker registry
     - docker push $REGISTRY_URL/$IMAGE_TEST
 
 test:
   stage: test
   script:
+  	# On teste la dernière version de notre application avec l'image de test
   	- echo "Test your application using the new image"
   	# # Example:
     # - docker pull $REGISTRY_URL/$IMAGE_TEST
@@ -86,6 +90,7 @@ release:
   only:
     - master
   script:
+  # Si l'image passe les tests, on met à jour l'image principale dans le Registry
     - docker pull $REGISTRY_URL/$IMAGE_TEST
     - docker tag $REGISTRY_URL/$IMAGE_TEST $REGISTRY_URL/$IMAGE_RELEASE
     - docker push $REGISTRY_URL/$IMAGE_RELEASE
@@ -93,12 +98,14 @@ release:
 deploy:
   stage: deploy
   image: mwienk/jelastic-cli
-  when: manual
+  when: manual # Le déploiement nécessite un déclenchement manuel
   only:
     - master
   before_script:
+  	# On s'identifie pour utiliser l'API Jelastic sur Hidora
     - /root/jelastic/users/authentication/signin --login $LOGIN --password $PASSWORD --platformUrl app.hidora.com
   script:
+  	# On lance le redéploiement du container sur Hidora
     - /root/jelastic/environment/control/redeploycontainerbyid --envName $ENVNAME --nodeId $NODE_ID --tag latest --useExistingVolumes false
 ```
 
@@ -109,7 +116,7 @@ Cette configuration décrit un pipeline générique qu'il faut adapter à votre 
 
 Ensuite, il faut fournir à votre pipeline des variables d'environnement pour qu'il puisse déployer correctement votre application. Depuis la page de votre dépôt sur Gitlab, rendez-vous dans *Settings > CI/CD > Secret variables* puis ajouter les variables suivantes:
 
-- **REGISTRY_URL**: L'adresse de votre Docker registry. Par exemple, `registry.hidora.com:5000`
+- **REGISTRY_URL**: L'adresse de votre Docker registry. Par exemple, `registry.hidora.com`
 - **REGISTRY_USER** et **REGISTRY_PASS**: Les identifiants pour s'authentifier sur votre Docker registry
 
 

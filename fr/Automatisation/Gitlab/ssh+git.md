@@ -199,7 +199,7 @@ deployProd:
     - git remote rm prod || true
     - git remote add prod $DEPLOY_GIT_PROD
     - git branch -f master HEAD
-    - git push -v test master
+    - git push -v prod master
 ```
 
 > La dernière partie *Deploy to Production env* n'est pas nécessaire si vous n'avez pas besoin d'un serveur de production avec déploiement manuel. Vous pouvez dans ce cas la supprimer.
