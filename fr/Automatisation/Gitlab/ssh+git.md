@@ -1,6 +1,6 @@
 # Déploiement avec Gitlab et git+ssh
 
-![Déploiement avec Gitlab et git+ssh](../../images/Pipeline Gitlab git+ssh.png)
+![Déploiement avec Gitlab et git+ssh](../../../images/PipelineGitlabGitSsh.png)
 
 ## Déploiement sur un noeud Docker
 
