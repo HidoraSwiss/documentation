@@ -1,4 +1,4 @@
-# Hidora's docuementation
+# Hidora's documentation
 
 Hidora is a Swiss-based managed cloud hosting platform (PaaS). We support any PHP, Javan Python, Node.js, Ruby, .NET or Docker-based applications. 
 
