@@ -124,7 +124,7 @@ Pour cela, vous allez avoir besoin de l'adresse SSH que Tuleap a fournie pour le
 git remote add demo ssh://gitolite@tuleap.hidora.com/softwarefactory/demo.git
 ```` 
 `tuleap.hidora.com` est par exemple l'URL de votre instance Tuleap.
-`softwarefactory` c'est le nom de votre projet Tuleap où vous avez crée le Git `demo`
+`softwarefactory` c'est le nom de votre projet Tuleap où vous avez crée le Git `demo`.
 `demo.git`c'est le nom de votre répertoire Git
 
 > Vérifiez que vous avez les fichiers prérequis  dans votre projet que vous allez pusher sur Git
@@ -150,7 +150,7 @@ Dans la partie * Continuous Intégration* de notre projet, on va créer un Job q
 **Exemple de Job URL :**
 ` http://jenkins.hidora.com/job/Pipeline-demo`
 
-`jenkins.hidora.com` étant l'URL de votre Jenkins 
+`jenkins.hidora.com` étant l'URL de votre Jenkins,
 `Pipeline-demo` le nom de votre Pipeline
 
 ![Job URL ](../../images/job-url.png)
