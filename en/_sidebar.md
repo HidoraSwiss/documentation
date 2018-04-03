@@ -4,7 +4,7 @@
   * [Gitlab](/Automation/Gitlab/sshgit.md)
   	* [SSH + git](/Automation/Gitlab/sshgit.md)
   	* [Docker Registry](/Automation/Gitlab/DockerRegistry.md)
-  * [Tuleap](/Automation/Tuleap/README.md)
+  * [Tuleap](/Automation/Tuleap.md)
   * [Deployment script](/Automation/DeploymentScript.md)
 * [API](/API/README.md)
   * [Deploy a manifest](/API/DeploymentManifest.md)
