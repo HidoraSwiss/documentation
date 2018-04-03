@@ -127,7 +127,7 @@ On your development server, add the repository `demo`, that you have created jus
 git remote add demo ssh://gitolite@tuleap.hidora.com/softwarefactory/demo.git
 ```` 
 `tuleap.hidora.com` is the URL of your instance Tuleap.
-`softwarefactory`is the name of your project, where you have your Git repository `demo`
+`softwarefactory`is the name of your project, where you have your Git repository `demo`,
 `demo.git` is the name of your Git repository.
 
 > Check that you have all files prerequisite in your project, that you will push into Git.
@@ -154,7 +154,7 @@ For that,  add the Pipeline-demo URL of Jenkins and choose *demo* as *Trigger a 
 **Example of Job URL :**
 ` http://jenkins.hidora.com/job/Pipeline-demo`
 
-`jenkins.hidora.com`is the URL of your Jenkins
+`jenkins.hidora.com`is the URL of your Jenkins,
 `Pipeline-demo` the name of your Pipeline.
 
 ![Job URL ](../../images/job-url.png)
