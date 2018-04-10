@@ -1,11 +1,11 @@
 # Deploy manifest from Jelastic's API
 
-It can be practical to launch a deployment of an environment with a manifest from Jelatic's API.
-However, the documentation of the API is not really clear and the the method which allows that is not documented.
+It can be useful to launch a deployment of an environment with a manifest from Jelatic's API.
+However, the documentation of the API is not really clear and the the method which allow this is not documented.
 
-The endpoint of the API that need to be used is :  <https://app.hidora.com/1.0/development/scripting/rest/eval>.
+The endpoint of the API that need to be used is <https://app.hidora.com/1.0/development/scripting/rest/eval>.
 
-Find below an example of parameters which is used :
+Find below an example of parameters to use:
 
 ```json
 {
@@ -24,9 +24,9 @@ Find below an example of parameters which is used :
 
 ## Example in PHP
 
-This PHP script deploy a server Xonotic on *my-xonotic.hidora.com* after each launch.
+This PHP script deploys a server Xonotic on *my-xonotic.hidora.com* after each launch.
 
->Be careful, the variable $ENV_NAME need to be different after each launch, otherwise, you will have two environments with the same name (so, one error).
+>Be careful, the variable $ENV_NAME needs to be different after each launch, otherwise you will have two environments with the same name (so, an error occurs).
 
 ```php
 <?php

@@ -2,7 +2,7 @@
 
 Thanks to this script, it is possibe to manage more finely deployments on Hidora (or other Jelastic hoster).
 
-Disposed with the code source of your project, in a Git repository, it can be executed in an automate pipeline to make *Continuous Deployement*.
+Disposed with the code source of your project in a Git repository, it can be executed in an automated pipeline to make *Continuous Deployement*.
 
 ## Script
 
@@ -66,10 +66,10 @@ exit 0
 
 ## Requirements
 
-The script use the program `jq` to treat datas returned by the API of Jelastic. So, you need to install it before:
+The script uses the program `jq` to treat data returned by the API of Jelastic. So, you need to install it before:
 https://stedolan.github.io/jq/
 
-It is also necessary to have  `curl` installed. It is already present on the most system but it is possible that you will have to install it manually, more especially with Docker Alpine images.
+It is also necessary to have `curl` installed. It is already present on the most systems but it is possible that you will have to install it manually, more especially with Docker Alpine images.
 
 ## Usage
 
@@ -81,12 +81,12 @@ In a simple use, you just need to specify your Hidora credentials and the name o
 
 **Example:** `./deploy-to-hidora.sh test@hidora.com mypass demonstration`
 
-> If the env name is already taken, you need to be the owner of the environment in ordrer to redeploy.
+> If the env name is already taken, you need to be the owner of the environment in ordrer to redeploy it.
 
-By default, if the environmnet doens not exist already, the script will use the file `manifest.jps`  in the current directory to create another one.
+By default, if the environmnent doesn't exist already, the script will use the file `manifest.jps` in the current directory to create a new one.
 If the environment exists, it will redeploy the main container (*cp* group) from the source image (Docker Hub or Private Docker registry).
 
-In an advanced use, it is possible to specify the manifest file desired and also the group (cp, lb, db ...) of the container to redeploy it.
+In an advanced use, it is possible to specify the manifest file to take and the node group (cp, lb, db ...) of the container to redeploy it.
 
 ```bash
 ./deploy-to-hidora.sh <email> <password> <env-name> <manifest-file> <group-name>
@@ -94,5 +94,6 @@ In an advanced use, it is possible to specify the manifest file desired and also
 
 **Example:** `./deploy-to-hidora.sh test@hidora.com mypass demonstration my-infra.json bl`
 
->More information regarding group nodes here : https://docs.cloudscripting.com/creating-manifest/selecting-containers/
+
+>More information about node groups here : https://docs.cloudscripting.com/creating-manifest/selecting-containers/
 
